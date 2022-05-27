@@ -21,7 +21,8 @@ function updateScoreTallyUI(){
 
 // updateGameHistoryUI
 function updateGameHistoryUI(){
-  
+  gameHistoryParagraph.clear();
+  gameHistoryParagraph = userName;
 }
 
 // start-game-button EventListener
@@ -37,7 +38,9 @@ startGameButton.addEventListener(`click`, function (event){
 // go-button EventListener
 goButton.addEventListener(`click`, function (event) {
   event.preventDefault();
-  
+  game.play(userSelection);
+  updateScoreTallyUI();
+  updateGameHistoryUI();
 });
 
 // If you're doing the extra-credit, uncomment the below: reset-game-button
