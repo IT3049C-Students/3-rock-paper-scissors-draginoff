@@ -12,22 +12,24 @@ const gameHistoryParagraph = document.getElementById(`game-history`);
 let game;
 
 // hide game screen
-gameScreen.classList.add(`d-none`);
+gameScreen.classList.add("d-none");
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
-
+  scoreParagraph = game.userName, ":", game.score.user, " v CPU: ", game.score.cpu;
 }
 
 // updateGameHistoryUI
 function updateGameHistoryUI(){
-
+  
 }
 
 // start-game-button EventListener
 startGameButton.addEventListener(`click`, function () {
-  const username = 
-  game = new RockPaperScissors(userName);
+  const username = userName;
+  game = new RockPaperScissors(username); 
+  welcomeScreen.classList.add("d-none");
+  gameScreen.classList.remove("d-none");  
   // Complete
 });
 
