@@ -65,8 +65,8 @@ class RockPaperScissors {
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-    cpuSelection = this.generateCPUResponse();
-    result = this.determineWinner(userSelection,cpuSelection);
+    const cpuSelection = this.generateCPUResponse();
+    const result = this.determineWinner(userSelection,this.cpuSelection);
     if(result == 'win')
     {
       this.score.user ++;
@@ -75,7 +75,7 @@ class RockPaperScissors {
     else if(result == 'lose')
     {
       this.score.cpu ++;
-      this.gameHistoryLog.push(this.username, "selected: ", userSelection, "CPU seclected: ", cpuSelection, "CPU WINS");
+      this.gameHistoryLog.push(this.username, "selected: ", userSelection, "CPU seclected: ", this.cpuSelection, "CPU WINS");
     }
       
   }

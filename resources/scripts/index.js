@@ -16,13 +16,13 @@ gameScreen.classList.add("d-none");
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
-  scoreParagraph = game.userName, ":", game.score.user, " v CPU: ", game.score.cpu;
+  scoreParagraph.innerHTML = game.userName, ":", game.score.user, " v CPU: ", game.score.cpu;
 }
 
 // updateGameHistoryUI
 function updateGameHistoryUI(){
-  gameHistoryParagraph.clear();
-  gameHistoryParagraph = userName;
+  gameHistoryParagraph.innerHTML = "";
+  gameHistoryParagraph.innerHTML = game.username;
 }
 
 // start-game-button EventListener
