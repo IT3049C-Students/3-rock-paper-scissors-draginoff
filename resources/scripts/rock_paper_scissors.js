@@ -1,3 +1,5 @@
+
+
 class RockPaperScissors {
   constructor(username) {
     this.username = username;
@@ -6,16 +8,21 @@ class RockPaperScissors {
       cpu:0 
     },
     this.gameHistoryLog = [];
+    userSelection = document.getElementById('user-selection');
   }
 
   /**
    * RETURN: one of the following values (`rock`, `paper`, `scissors`)
    * using Math.random() method, you should be able to get one of the following values
    */
+  randomNumber() { 
+      return Math.random() * 3;
+    } 
   generateCPUResponse(){
-    const acceptedValues = [ `rock`, `paper`, `scissors` ];
-
-    return ;
+    const acceptedValues = [ `rock`, `paper`, `scissors` ];  
+     let wholeRandom = Math.floor(this.randomNumber());     
+      let cpuValue = acceptedValues[wholeRandom];
+    return cpuValue;
   }
   /**
    * returns one of the following values: `win`, `lose`, `tie`
@@ -33,7 +40,25 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection){
-
+    if(userSelection == cpuSelection){
+      return 'tie';
+    }    
+    else if(userSelection == 'rock' && cpuSelection == 'scissors')
+    {
+      return 'win';
+    }
+    else if(userSelection == 'paper' && cpuSelection == 'rock')
+    {
+      return 'win';
+    }
+    else if(userSelection == 'scissors' && cpuSelection == 'paper')
+    {
+      return 'win';
+    }
+    else
+    {
+      return 'lose';
+    }
   }
 
   /**
@@ -41,7 +66,18 @@ class RockPaperScissors {
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-
+    const cpuSelection = this.generateCPUResponse();
+    const selection = document.getElementById('user-selection');
+    const result = this.determineWinner(selection, cpuSelection);
+    if(result == 'win')
+    {
+      this.score.user ++;
+      this.gameHistoryLog.push(game.username + "selected: " + userSelection + "CPU seclected: " + cpuSelection + this.username + "WINS");  
+    }
+    else if(result == 'lose')
+    {
+      this.score.cpu ++;
+      this.gameHistoryLog.push(game.username + "selected: " + userSelection + "CPU seclected: " + this.cpuSelection + "CPU WINS");
+    }      
   }
-
 }
