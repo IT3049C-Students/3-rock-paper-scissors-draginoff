@@ -8,6 +8,7 @@ class RockPaperScissors {
       cpu:0 
     },
     this.gameHistoryLog = [];
+    userSelection = document.getElementById('user-selection');
   }
 
   /**
@@ -66,18 +67,17 @@ class RockPaperScissors {
    */
   play(userSelection){
     const cpuSelection = this.generateCPUResponse();
-    const result = this.determineWinner(userSelection,this.cpuSelection);
+    const selection = document.getElementById('user-selection');
+    const result = this.determineWinner(selection, cpuSelection);
     if(result == 'win')
     {
       this.score.user ++;
-      this.gameHistoryLog.push(this.username, "selected: ", userSelection, "CPU seclected: ", cpuSelection, this.username, "WINS");  
+      this.gameHistoryLog.push(game.username + "selected: " + userSelection + "CPU seclected: " + cpuSelection + this.username + "WINS");  
     }
     else if(result == 'lose')
     {
       this.score.cpu ++;
-      this.gameHistoryLog.push(this.username, "selected: ", userSelection, "CPU seclected: ", this.cpuSelection, "CPU WINS");
-    }
-      
+      this.gameHistoryLog.push(game.username + "selected: " + userSelection + "CPU seclected: " + this.cpuSelection + "CPU WINS");
+    }      
   }
-
 }
